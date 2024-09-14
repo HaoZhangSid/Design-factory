@@ -945,44 +945,6 @@ export interface ApiNavigationNavigation extends Schema.CollectionType {
   };
 }
 
-export interface ApiTesterTester extends Schema.SingleType {
-  collectionName: 'testers';
-  info: {
-    singularName: 'tester';
-    pluralName: 'testers';
-    displayName: 'tester';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    html: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    asdasd: Attribute.Boolean;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tester.tester',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tester.tester',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1004,7 +966,6 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::navigation.navigation': ApiNavigationNavigation;
-      'api::tester.tester': ApiTesterTester;
     }
   }
 }
